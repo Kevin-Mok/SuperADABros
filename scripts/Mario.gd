@@ -23,8 +23,18 @@ func _physics_process(delta):
 	_move(delta)
 # }}}
 
+func get_mouse_direction():# {{{
+	cur_mouse_point = Global.view.get_mouse_position() * Global.TEST_WINDOW_SCALE
+	if cur_mouse_point.x < Global.TEST_MOVE_LEFT_LINE_X:
+		return Vector2(-1,0)
+	elif cur_mouse_point.x > Global.TEST_MOVE_RIGHT_LINE_X:
+		return Vector2(1,0)
+	else:
+		return Vector2(0,0)# }}}
+
 func _move(delta):# {{{
-	direction.x = int(Input.is_action_pressed("ui_right"))-int(Input.is_action_pressed("ui_left"))
+	# direction.x = int(Input.is_action_pressed("ui_right"))-int(Input.is_action_pressed("ui_left"))
+	direction.x = get_mouse_direction().x
 	
 	#  animation {{{ # 
 	
@@ -42,7 +52,7 @@ func _move(delta):# {{{
 	
 	#  }}} animation # 
 	
-	var not_at_left_edge = $sprite.global_position.x > 0
+	var not_at_left_edge = $sprite.global_position.x > 8
 	distance.x = (speed*delta if not_at_left_edge || direction.x == 1 else 0)
 	velocity.x = (direction.x*distance.x)/delta
 	velocity.y += gravity*delta

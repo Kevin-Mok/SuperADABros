@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Mario.gd" type="Script" id=1]
 [ext_resource path="res://img/mario/idle-wheelchair.png" type="Texture" id=2]
 [ext_resource path="res://img/mario/move-wheelchair-1.png" type="Texture" id=3]
 [ext_resource path="res://img/mario/move-wheelchair-2.png" type="Texture" id=4]
 [ext_resource path="res://tiles/GroundTileSet.tres" type="TileSet" id=5]
+[ext_resource path="res://scripts/MouseBoundaries.gd" type="Script" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -26,7 +27,7 @@ height = 16.0
 [node name="1-1-World" type="Node2D"]
 
 [node name="Mario" type="KinematicBody2D" parent="."]
-position = Vector2( 40, 128 )
+position = Vector2( 8, 128 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -56,6 +57,7 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Ground" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Ground 10" type="Node2D" parent="Ground"]
 editor/display_folded = true
@@ -86,4 +88,23 @@ tile_set = ExtResource( 5 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Move With Mouse" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Move With Mouse"]
+script = ExtResource( 6 )
+
+[node name="move_left_line" type="Line2D" parent="Move With Mouse/CanvasLayer"]
+z_index = 10
+points = PoolVector2Array( 96, -1000, 96, 1000 )
+width = 1.0
+default_color = Color( 1, 0.85098, 0.4, 1 )
+texture_mode = 540876919
+
+[node name="move_right_line" type="Line2D" parent="Move With Mouse/CanvasLayer"]
+z_index = 10
+points = PoolVector2Array( 288, -1000, 288, 1000 )
+width = 1.0
+default_color = Color( 1, 0.85098, 0.4, 1 )
+texture_mode = 1073741824
 

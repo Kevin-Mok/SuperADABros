@@ -19,6 +19,10 @@ config/name="ada-mario"
 run/main_scene="res://1-1-World.tscn"
 config/icon="res://img/mario-icon.png"
 
+[autoload]
+
+Global="*res://scripts/Global.gd"
+
 [display]
 
 window/size/width=384
