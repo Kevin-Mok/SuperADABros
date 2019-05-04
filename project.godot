@@ -22,6 +22,7 @@ config/icon="res://img/mario-icon.png"
 [autoload]
 
 Global="*res://scripts/Global.gd"
+MoveWithHead="*res://scripts/MoveWithHead.gd"
 
 [display]
 
