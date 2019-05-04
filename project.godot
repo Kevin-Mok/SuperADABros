@@ -25,6 +25,8 @@ window/size/width=384
 window/size/height=224
 window/size/test_width=1536
 window/size/test_height=896
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [rendering]
 
