@@ -21,6 +21,8 @@ comfortable for the user:
 - keyboard
 - controller
 
+A demo version that can be played with the mouse on multiple platforms (Windows, OS X, Linux and web) can be found [on the releases page](https://github.com/Kevin-Mok/super-ada-bros/releases). Take note of the fact that there may be existing bugs in the release due to time constraint.
+
 # How I Built It
 OpenCV and Godot.
 

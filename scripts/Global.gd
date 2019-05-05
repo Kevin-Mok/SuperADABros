@@ -38,8 +38,8 @@ var CHECKPOINTS = [
 		Vector2(2440, 80),
 		Vector2(28234, 64),
 		]
-# var cur_checkpoint_index = -1
-var cur_checkpoint_index = 4
+var cur_checkpoint_index = -1
+# var cur_checkpoint_index = 4
 var last_checkpoint_count = [cur_checkpoint_index, 0]
 const MAX_CHECKPOINTS = 3
 
