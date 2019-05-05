@@ -25,10 +25,18 @@ comfortable for the user:
 OpenCV and Godot.
 
 # Challenges I Ran Into
-- rotation physics
+Game physics is more complex than I thought it would be, even with it being
+a simple 2D platformer.
 
 # Accomplishments That I'm Proud Of
+Making my first game. I'm pretty happy with the way it turned out given the
+amount of time I had.
 
 # What I Learned
+Basic game development skills and a bit of visual computing for the face
+tracking and game physics.
 
 # What's Next For Super ADA Bros
+- adjustable settings to match user's exact preferences
+- more features from original game
+  - more mechanics with movement and enemies
