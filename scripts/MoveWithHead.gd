@@ -7,7 +7,8 @@ extends Node2D
 const DETECTION_OUTPUT_FILE = '/tmp/move_mouse_with_head.out'
 var detection_on = false
 var mouse_point_set
-const NUM_FACE_CENTERS = 5
+const NUM_FACE_CENTERS = 3
+# const NUM_FACE_CENTERS = 5
 # const NUM_FACE_CENTERS = 10
 var head_centers = []
 var last_head_center = Vector2(0,0)
@@ -36,7 +37,6 @@ func _ready():# {{{
 	check_if_detecting()
 
 func _process(delta):
-	# print(delta)
 	if detection_on:
 		update_mouse_point_set()
 # }}}
@@ -56,7 +56,7 @@ func update_mouse_point_set():# {{{
 		# last_head_center = latest_head_center
 	# if diff != Vector2(0,0):
 	if return_min_movement(diff):
-		print(diff * scale_head_movement)
+		# print(diff * scale_head_movement)
 		diff.x *= -1
 		mouse_point_set += diff * scale_head_movement
 		# last_head_centers_avg = head_centers_avg
@@ -100,5 +100,4 @@ func update_avg_head_center():# {{{
 	if head_centers.size() > NUM_FACE_CENTERS:
 		head_centers_sum -= head_centers.pop_front()
 	head_centers_avg = head_centers_sum / head_centers.size()
-	# print(head_centers_avg)
 # }}}

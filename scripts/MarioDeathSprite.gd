@@ -8,6 +8,8 @@ var jumped = false
 var gravity = jump_speed * 1.5
 var velocity = Vector2(0,0)
 
+const BELOW_SCREEN = 184
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_physics_process(true)
@@ -23,4 +25,6 @@ func _move(delta):# {{{
 		velocity.y -= jump_speed
 		jumped = true
 	move_and_slide(velocity,Vector2(0,-1))
+	if position.y > 184:
+		get_tree().reload_current_scene()
 # }}}

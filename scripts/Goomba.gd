@@ -24,6 +24,7 @@ func _ready():# {{{
 	# direction.x = 0
 	direction.x = -1
 	# direction.x = 1
+	velocity.y = 0
 
 func _physics_process(delta):
 	if killed_frames == 0:
@@ -43,13 +44,14 @@ func _move(delta):# {{{
 	var not_at_left_edge = $sprite.get_global_transform_with_canvas()[2].x > 0
 	distance.x = (speed*delta if not_at_left_edge || direction.x == 1 else 0)
 	velocity.x = (direction.x*distance.x)/delta
-	velocity.y += gravity*delta
+	# velocity.y += gravity*delta
 	
 	move_and_slide(velocity,Vector2(0,-1))
 	
 	if get_slide_count() > 0:
 		var get_col = get_slide_collision(get_slide_count()-1)
-		if get_col.collider.is_in_group("ramp"):
+		if (get_col.collider.is_in_group("ramp") ||
+				get_col.collider.is_in_group("enemy")):
 			direction.x *= -1
 		elif get_col.collider.is_in_group("mario"):
 			if ((check_if_mario_opp_dir() && Global.MARIO_NODE.attacking) ||

@@ -10,9 +10,9 @@
 [ext_resource path="res://img/mario/move-wheelchair-1.png" type="Texture" id=8]
 [ext_resource path="res://img/mario/move-wheelchair-2.png" type="Texture" id=9]
 [ext_resource path="res://scripts/Goomba.gd" type="Script" id=10]
-[ext_resource path="res://img/enemies/goomba/squash.png" type="Texture" id=11]
-[ext_resource path="res://img/enemies/goomba/left.png" type="Texture" id=12]
-[ext_resource path="res://img/enemies/goomba/right.png" type="Texture" id=13]
+[ext_resource path="res://img/enemies/goomba/left.png" type="Texture" id=11]
+[ext_resource path="res://img/enemies/goomba/right.png" type="Texture" id=12]
+[ext_resource path="res://img/enemies/goomba/squash.png" type="Texture" id=13]
 [ext_resource path="res://tiles/PipeTileSet.tres" type="TileSet" id=14]
 [ext_resource path="res://tiles/RampTileSet2.tres" type="TileSet" id=15]
 [ext_resource path="res://tiles/GroundTileSet.tres" type="TileSet" id=16]
@@ -36,15 +36,15 @@ height = 16.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "squash",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "squash",
+"speed": 3.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -89,13 +89,13 @@ __meta__ = {
 }
 
 [node name="Mario Sprite (Death)" type="KinematicBody2D" parent="Mario (Death)"]
-editor/display_folded = true
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="sprite" type="Sprite" parent="Mario (Death)/Mario Sprite (Death)"]
+z_index = 10
 texture = ExtResource( 4 )
 
 [node name="wheelchair" type="Sprite" parent="Mario (Death)"]
@@ -104,8 +104,7 @@ texture = ExtResource( 5 )
 [node name="Mario" type="KinematicBody2D" parent="." groups=[
 "mario",
 ]]
-editor/display_folded = true
-position = Vector2( 112, 96 )
+position = Vector2( 56, 128 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
@@ -123,7 +122,7 @@ shape = SubResource( 2 )
 current = true
 limit_left = 0
 limit_top = -50
-limit_right = 900
+limit_right = 2000
 limit_bottom = 175
 smoothing_enabled = true
 smoothing_speed = 1.0
@@ -134,82 +133,263 @@ drag_margin_bottom = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Pipes Section" type="Node2D" parent="."]
+position = Vector2( 1176, 64 )
 
-[node name="Goomba" type="KinematicBody2D" parent="Enemies" groups=[
+[node name="Enemies" type="Node2D" parent="Pipes Section"]
+editor/display_folded = true
+position = Vector2( -1176, -64 )
+
+[node name="Goomba2" type="KinematicBody2D" parent="Pipes Section/Enemies" groups=[
 "enemy",
 ]]
-position = Vector2( 256, 136 )
+editor/display_folded = true
+position = Vector2( 1432, 136 )
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="sprite" type="AnimatedSprite" parent="Enemies/Goomba"]
+[node name="sprite" type="AnimatedSprite" parent="Pipes Section/Enemies/Goomba2"]
 frames = SubResource( 3 )
 animation = "move"
 
-[node name="collision" type="CollisionShape2D" parent="Enemies/Goomba"]
+[node name="collision" type="CollisionShape2D" parent="Pipes Section/Enemies/Goomba2"]
 shape = SubResource( 4 )
 
-[node name="Pipe-Ramps" type="Node2D" parent="."]
-
-[node name="Pipe-Ramp" type="Node2D" parent="Pipe-Ramps"]
-position = Vector2( 304, 0 )
+[node name="Goomba4" type="KinematicBody2D" parent="Pipes Section/Enemies" groups=[
+"enemy",
+]]
+editor/display_folded = true
+position = Vector2( 1400, 136 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Pipe" type="Node2D" parent="Pipe-Ramps/Pipe-Ramp"]
+[node name="sprite" type="AnimatedSprite" parent="Pipes Section/Enemies/Goomba4"]
+frames = SubResource( 3 )
+animation = "move"
 
-[node name="TileMap" type="TileMap" parent="Pipe-Ramps/Pipe-Ramp/Pipe"]
+[node name="collision" type="CollisionShape2D" parent="Pipes Section/Enemies/Goomba4"]
+shape = SubResource( 4 )
+
+[node name="Goomba3" type="KinematicBody2D" parent="Pipes Section/Enemies" groups=[
+"enemy",
+]]
+editor/display_folded = true
+position = Vector2( 1016, 136 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="AnimatedSprite" parent="Pipes Section/Enemies/Goomba3"]
+frames = SubResource( 3 )
+animation = "move"
+
+[node name="collision" type="CollisionShape2D" parent="Pipes Section/Enemies/Goomba3"]
+shape = SubResource( 4 )
+
+[node name="Goomba" type="KinematicBody2D" parent="Pipes Section/Enemies" groups=[
+"enemy",
+]]
+editor/display_folded = true
+position = Vector2( 336, 136 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="AnimatedSprite" parent="Pipes Section/Enemies/Goomba"]
+frames = SubResource( 3 )
+animation = "move"
+
+[node name="collision" type="CollisionShape2D" parent="Pipes Section/Enemies/Goomba"]
+shape = SubResource( 4 )
+
+[node name="Pipe-Ramps" type="Node2D" parent="Pipes Section"]
+editor/display_folded = true
+position = Vector2( -1176, -64 )
+
+[node name="Pipe-Ramp2" type="Node2D" parent="Pipes Section/Pipe-Ramps"]
+editor/display_folded = true
+position = Vector2( 240, 32 )
+
+[node name="Pipe" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2"]
+position = Vector2( -32, 0 )
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2/Pipe"]
 tile_set = ExtResource( 14 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 262160, 0, 0, 327696, 1, 0, 393232, 1, 0, 458768, 1, 0, 524304, 1, 0 )
+tile_data = PoolIntArray( 327696, 0, 0, 393232, 1, 0 )
 
-[node name="Ramps" type="Node2D" parent="Pipe-Ramps/Pipe-Ramp"]
+[node name="Ramps" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2"]
 
-[node name="RampL" type="Node2D" parent="Pipe-Ramps/Pipe-Ramp/Ramps"]
+[node name="RampL" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2/Ramps"]
 
-[node name="TileMap" type="TileMap" parent="Pipe-Ramps/Pipe-Ramp/Ramps/RampL" groups=[
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2/Ramps/RampL" groups=[
 "ramp",
 "ramp_up",
 ]]
 tile_set = ExtResource( 15 )
 cell_size = Vector2( 32, 16 )
 format = 1
-tile_data = PoolIntArray( 262151, 2, 0, 327686, 2, 0, 393221, 2, 0, 458756, 0, 0, 524291, 0, 0 )
+tile_data = PoolIntArray( 327686, 2, 0, 393221, 2, 0, 393222, 1, 0 )
 
-[node name="RampR" type="Node2D" parent="Pipe-Ramps/Pipe-Ramp/Ramps"]
-position = Vector2( 544, 0 )
+[node name="RampL2" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2/Ramps"]
+position = Vector2( 480, 0 )
 scale = Vector2( -1, 1 )
 
-[node name="TileMap" type="TileMap" parent="Pipe-Ramps/Pipe-Ramp/Ramps/RampR" groups=[
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2/Ramps/RampL2" groups=[
 "ramp",
 "ramp_down",
 ]]
 tile_set = ExtResource( 15 )
 cell_size = Vector2( 32, 16 )
 format = 1
-tile_data = PoolIntArray( 262151, 2, 0, 327686, 2, 0, 393221, 2, 0, 458756, 0, 0, 524291, 0, 0 )
+tile_data = PoolIntArray( 327686, 2, 0, 393221, 2, 0, 393222, 1, 0 )
 
-[node name="Ground" type="Node2D" parent="."]
+[node name="Pipe-Ramp3" type="Node2D" parent="Pipes Section/Pipe-Ramps"]
+editor/display_folded = true
+position = Vector2( 528, 32 )
 
-[node name="Ground 15" type="Node2D" parent="Ground"]
-position = Vector2( -32, 80 )
+[node name="Pipe" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp3"]
+editor/display_folded = true
 
-[node name="TileMap" type="TileMap" parent="Ground/Ground 15"]
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp3/Pipe"]
+tile_set = ExtResource( 14 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262160, 0, 0, 327696, 1, 0, 393232, 1, 0 )
+
+[node name="Ramps" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp3"]
+editor/display_folded = true
+
+[node name="RampL" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp3/Ramps"]
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp3/Ramps/RampL" groups=[
+"ramp",
+"ramp_up",
+]]
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( 262151, 2, 0, 327686, 2, 0, 327687, 1, 0, 393221, 2, 0, 393222, 1, 0, 393223, 1, 0 )
+
+[node name="RampR" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp3/Ramps"]
+position = Vector2( 544, 0 )
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp3/Ramps/RampR" groups=[
+"ramp",
+"ramp_down",
+]]
+scale = Vector2( -1, 1 )
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( 262151, 2, 0, 327686, 2, 0, 327687, 1, 0, 393221, 2, 0, 393222, 1, 0, 393223, 1, 0 )
+
+[node name="Pipe-Ramp4" type="Node2D" parent="Pipes Section/Pipe-Ramps"]
+editor/display_folded = true
+position = Vector2( 880, 32 )
+
+[node name="Pipe" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp4"]
+editor/display_folded = true
+position = Vector2( 32, 0 )
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp4/Pipe"]
+tile_set = ExtResource( 14 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 196624, 0, 0, 262160, 1, 0, 327696, 1, 0, 393232, 1, 0 )
+
+[node name="Ramps" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp4"]
+
+[node name="RampL" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp4/Ramps"]
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp4/Ramps/RampL" groups=[
+"ramp",
+"ramp_up",
+]]
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( 196616, 2, 0, 262151, 2, 0, 262152, 1, 0, 327686, 2, 0, 327687, 1, 0, 327688, 1, 0, 393221, 2, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0 )
+
+[node name="RampR" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp4/Ramps"]
+position = Vector2( 608, 0 )
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp4/Ramps/RampR" groups=[
+"ramp",
+"ramp_down",
+]]
+scale = Vector2( -1, 1 )
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( 196616, 2, 0, 262151, 2, 0, 262152, 1, 0, 327686, 2, 0, 327687, 1, 0, 327688, 1, 0, 393221, 2, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0 )
+
+[node name="Pipe-Ramp5" type="Node2D" parent="Pipes Section/Pipe-Ramps"]
+editor/display_folded = true
+position = Vector2( 1296, 32 )
+
+[node name="Pipe" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp5"]
+editor/display_folded = true
+position = Vector2( 32, 0 )
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp5/Pipe"]
+tile_set = ExtResource( 14 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 196624, 0, 0, 262160, 1, 0, 327696, 1, 0, 393232, 1, 0 )
+
+[node name="Ramps" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp5"]
+
+[node name="RampL" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp5/Ramps"]
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp5/Ramps/RampL" groups=[
+"ramp",
+"ramp_up",
+]]
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( 196616, 2, 0, 262151, 2, 0, 262152, 1, 0, 327686, 2, 0, 327687, 1, 0, 327688, 1, 0, 393221, 2, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0 )
+
+[node name="RampR" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp5/Ramps"]
+position = Vector2( 608, 0 )
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp5/Ramps/RampR" groups=[
+"ramp",
+"ramp_down",
+]]
+scale = Vector2( -1, 1 )
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( 196616, 2, 0, 262151, 2, 0, 262152, 1, 0, 327686, 2, 0, 327687, 1, 0, 327688, 1, 0, 393221, 2, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0 )
+
+[node name="Ground" type="Node2D" parent="Pipes Section"]
+editor/display_folded = true
+position = Vector2( -1176, -64 )
+
+[node name="Platform" type="Node2D" parent="Pipes Section/Ground"]
+editor/display_folded = true
+position = Vector2( -176, 80 )
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/Ground/Platform"]
 tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0 )
 
-[node name="Ground 10" type="Node2D" parent="Ground"]
+[node name="Ground 10" type="Node2D" parent="Pipes Section/Ground"]
 editor/display_folded = true
 position = Vector2( 0, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 10" groups=[
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 10" groups=[
 "ground",
 ]]
 tile_set = ExtResource( 16 )
@@ -217,11 +397,23 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
 
-[node name="Ground 11" type="Node2D" parent="Ground"]
+[node name="Ground 20" type="Node2D" parent="Pipes Section/Ground"]
+editor/display_folded = true
+position = Vector2( 1120, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 20" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 11" type="Node2D" parent="Pipes Section/Ground"]
 editor/display_folded = true
 position = Vector2( 160, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 11" groups=[
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 11" groups=[
 "ground",
 ]]
 tile_set = ExtResource( 16 )
@@ -229,11 +421,23 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
 
-[node name="Ground 12" type="Node2D" parent="Ground"]
+[node name="Ground 21" type="Node2D" parent="Pipes Section/Ground"]
+editor/display_folded = true
+position = Vector2( 1280, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 21" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 12" type="Node2D" parent="Pipes Section/Ground"]
 editor/display_folded = true
 position = Vector2( 320, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 12" groups=[
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 12" groups=[
 "ground",
 ]]
 tile_set = ExtResource( 16 )
@@ -241,11 +445,23 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
 
-[node name="Ground 13" type="Node2D" parent="Ground"]
+[node name="Ground 18" type="Node2D" parent="Pipes Section/Ground"]
+editor/display_folded = true
+position = Vector2( 1440, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 18" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 13" type="Node2D" parent="Pipes Section/Ground"]
 editor/display_folded = true
 position = Vector2( 480, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 13" groups=[
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 13" groups=[
 "ground",
 ]]
 tile_set = ExtResource( 16 )
@@ -253,11 +469,59 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
 
-[node name="Ground 14" type="Node2D" parent="Ground"]
+[node name="Ground 19" type="Node2D" parent="Pipes Section/Ground"]
+editor/display_folded = true
+position = Vector2( 1600, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 19" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 16" type="Node2D" parent="Pipes Section/Ground"]
+editor/display_folded = true
+position = Vector2( 800, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 16" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 14" type="Node2D" parent="Pipes Section/Ground"]
 editor/display_folded = true
 position = Vector2( 640, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 14" groups=[
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 14" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 17" type="Node2D" parent="Pipes Section/Ground"]
+editor/display_folded = true
+position = Vector2( 1760, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 17" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 15" type="Node2D" parent="Pipes Section/Ground"]
+editor/display_folded = true
+position = Vector2( 960, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="Pipes Section/Ground/Ground 15" groups=[
 "ground",
 ]]
 tile_set = ExtResource( 16 )

@@ -84,7 +84,6 @@ func set_rotation_degree(action):# {{{
 				# velocity.y += REV_DIR_ATTACK_GRAVITY
 			if rotation_degrees == ATTACK_DEGREES * degree_multiplier:
 				attacking_rotating_up = false
-			# print(rotation_degrees)
 # }}}
 
 func set_ramp_status(set_on_ramp, direction):# {{{
@@ -147,7 +146,6 @@ func _move(delta):# {{{
 	
 	move_and_slide(velocity,Vector2(0,-1))
 	
-	# if get_col.collider.is_in_group("ground"):
 	if get_slide_count() > 0:# {{{
 		var get_col = get_slide_collision(get_slide_count()-1)
 		if is_on_floor() && !get_col.collider.is_in_group("enemy"):
@@ -168,8 +166,6 @@ func _move(delta):# {{{
 			# speed = GROUND_SPEED
 	# }}}
 
-	print(velocity.y)
-	# print(is_on_floor())
 # }}}
 
 func death():# {{{
