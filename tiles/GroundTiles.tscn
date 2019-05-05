@@ -19,3 +19,19 @@ region_rect = Rect2( 0, 0, 16, 16 )
 position = Vector2( 8, 8 )
 shape = SubResource( 1 )
 
+[node name="1" type="Sprite" parent="."]
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1/StaticBody2D"]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/MouseBoundaries.gd" type="Script" id=1]
 [ext_resource path="res://scripts/MarioDeath.gd" type="Script" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://tiles/PipeTileSet.tres" type="TileSet" id=14]
 [ext_resource path="res://tiles/RampTileSet2.tres" type="TileSet" id=15]
 [ext_resource path="res://tiles/GroundTileSet.tres" type="TileSet" id=16]
+[ext_resource path="res://img/tiles-sprite-sheet-16.png" type="Texture" id=17]
+[ext_resource path="res://tiles/BackgroundTileSet.tres" type="TileSet" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -50,6 +52,128 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 4.0
 height = 8.0
+
+[sub_resource type="TileSet" id=5]
+0/name = "0"
+0/texture = ExtResource( 17 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 320, 128, 16, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+1/name = "1"
+1/texture = ExtResource( 17 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 336, 128, 16, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [  ]
+1/z_index = 0
+2/name = "2"
+2/texture = ExtResource( 17 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 352, 128, 16, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [  ]
+2/z_index = 0
+3/name = "C0"
+3/texture = ExtResource( 17 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 176, 0, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shapes = [  ]
+3/z_index = 0
+4/name = "C1"
+4/texture = ExtResource( 17 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 192, 16, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shapes = [  ]
+4/z_index = 0
+5/name = "C2"
+5/texture = ExtResource( 17 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 208, 16, 16, 16 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shapes = [  ]
+5/z_index = 0
+6/name = "C3"
+6/texture = ExtResource( 17 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 208, 0, 16, 16 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shapes = [  ]
+6/z_index = 0
+7/name = "C4"
+7/texture = ExtResource( 17 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 192, 0, 16, 16 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shapes = [  ]
+7/z_index = 0
+8/name = "C5"
+8/texture = ExtResource( 17 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 224, 0, 16, 16 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shapes = [  ]
+8/z_index = 0
+9/name = "B0"
+9/texture = ExtResource( 17 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 176, 144, 16, 16 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shapes = [  ]
+9/z_index = 0
+10/name = "B1"
+10/texture = ExtResource( 17 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 192, 144, 16, 16 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shapes = [  ]
+10/z_index = 0
+11/name = "B2"
+11/texture = ExtResource( 17 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 208, 144, 16, 16 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shapes = [  ]
+11/z_index = 0
 
 [node name="1-1-World" type="Node2D"]
 
@@ -125,7 +249,7 @@ shape = SubResource( 2 )
 current = true
 limit_left = 0
 limit_top = -50
-limit_right = 6000
+limit_right = 3600
 limit_bottom = 175
 smoothing_enabled = true
 smoothing_speed = 2.0
@@ -137,13 +261,13 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Pipes Section" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 1176, 64 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Enemies" type="Node2D" parent="Pipes Section"]
+editor/display_folded = true
 position = Vector2( -1176, -64 )
 
 [node name="Goomba" type="KinematicBody2D" parent="Pipes Section/Enemies" groups=[
@@ -223,6 +347,7 @@ editor/display_folded = true
 position = Vector2( 240, 32 )
 
 [node name="Pipe" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2"]
+editor/display_folded = true
 position = Vector2( -32, 0 )
 
 [node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2/Pipe"]
@@ -234,6 +359,7 @@ tile_data = PoolIntArray( 327696, 0, 0, 393232, 1, 0 )
 [node name="Ramps" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2"]
 
 [node name="RampL" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2/Ramps"]
+editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2/Ramps/RampL" groups=[
 "ramp",
@@ -378,6 +504,7 @@ format = 1
 tile_data = PoolIntArray( 196616, 2, 0, 262151, 2, 0, 262152, 1, 0, 327686, 2, 0, 327687, 1, 0, 327688, 1, 0, 393221, 2, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0 )
 
 [node name="Ground" type="Node2D" parent="Pipes Section"]
+editor/display_folded = true
 position = Vector2( -1176, -64 )
 
 [node name="Platform" type="Node2D" parent="Pipes Section/Ground"]
@@ -533,13 +660,44 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
 
+[node name="BG" type="Node2D" parent="Pipes Section"]
+
+[node name="Clouds" type="Node2D" parent="Pipes Section/BG"]
+
+[node name="Cloud" type="Node2D" parent="Pipes Section/BG/Clouds"]
+editor/display_folded = true
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/BG/Clouds/Cloud"]
+tile_set = SubResource( 5 )
+cell_size = Vector2( 16, 32 )
+format = 1
+
+[node name="Castle" type="Node2D" parent="Pipes Section/BG"]
+
+[node name="TileMap" type="TileMap" parent="Pipes Section/BG/Castle"]
+position = Vector2( -8, 0 )
+z_index = 1
+tile_set = ExtResource( 18 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65390, 536870912, 0, -65389, 536870912, 0, -65388, 536870912, 0, 146, 536870917, 0, 147, 536870915, 0, 148, 536870916, 0, 65681, 536870912, 0, 65682, 536870912, 0, 65683, 536870912, 0, 65684, 536870912, 0, 65685, 536870912, 0, 131217, 536870915, 0, 131218, 536870915, 0, 131219, 536870913, 0, 131220, 536870915, 0, 131221, 536870915, 0, 196753, 536870915, 0, 196754, 536870915, 0, 196755, 536870914, 0, 196756, 536870915, 0, 196757, 536870915, 0, 262289, 536870915, 0, 262290, 536870915, 0, 262291, 536870914, 0, 262292, 536870915, 0, 262293, 536870915, 0 )
+
+[node name="TileMap2" type="TileMap" parent="Pipes Section/BG/Castle"]
+position = Vector2( -8, 0 )
+tile_set = ExtResource( 18 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65390, 536870912, 0, -65389, 536870912, 0, -65388, 536870912, 0, 146, 536870917, 0, 147, 536870915, 0, 148, 536870916, 0, 65681, 536870912, 0, 65682, 536870915, 0, 65683, 536870915, 0, 65684, 536870915, 0, 65685, 536870912, 0, 131217, 536870915, 0, 131218, 536870915, 0, 131219, 536870913, 0, 131220, 536870915, 0, 131221, 536870915, 0, 196753, 536870915, 0, 196754, 536870915, 0, 196755, 536870914, 0, 196756, 536870915, 0, 196757, 536870915, 0, 262289, 536870915, 0, 262290, 536870915, 0, 262291, 536870914, 0, 262292, 536870915, 0, 262293, 536870915, 0 )
+
 [node name="Drop Section" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 3062, 64 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Enemies" type="Node2D" parent="Drop Section"]
+editor/display_folded = true
 position = Vector2( -1176, -64 )
 
 [node name="Goomba" type="KinematicBody2D" parent="Drop Section/Enemies" groups=[
@@ -610,6 +768,7 @@ animation = "move"
 shape = SubResource( 4 )
 
 [node name="Pipe-Ramps" type="Node2D" parent="Drop Section"]
+editor/display_folded = true
 position = Vector2( -1414, -64 )
 __meta__ = {
 "_edit_group_": true
@@ -745,21 +904,8 @@ cell_size = Vector2( 32, 16 )
 format = 1
 tile_data = PoolIntArray( 655359, 3, 0 )
 
-[node name="Ramp Across2" type="Node2D" parent="Drop Section/Ramps Across"]
-position = Vector2( 1151.75, 0 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="TileMap" type="TileMap" parent="Drop Section/Ramps Across/Ramp Across2" groups=[
-"ramp",
-]]
-tile_set = ExtResource( 15 )
-cell_size = Vector2( 32, 16 )
-format = 1
-tile_data = PoolIntArray( 589823, 0, 0 )
-
 [node name="Ground" type="Node2D" parent="Drop Section"]
+editor/display_folded = true
 position = Vector2( -1141.75, -64 )
 
 [node name="Ground 10" type="Node2D" parent="Drop Section/Ground"]
@@ -845,4 +991,164 @@ tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="End Section" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 4214, 64 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Ramps Across" type="Node2D" parent="End Section"]
+editor/display_folded = true
+position = Vector2( -1141.75, -64 )
+
+[node name="Ramp Across" type="Node2D" parent="End Section/Ramps Across"]
+position = Vector2( -0.246094, 0 )
+
+[node name="TileMap" type="TileMap" parent="End Section/Ramps Across/Ramp Across"]
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( 655359, 3, 0 )
+
+[node name="Ground" type="Node2D" parent="End Section"]
+editor/display_folded = true
+position = Vector2( -1141.75, -64 )
+
+[node name="Ground 10" type="Node2D" parent="End Section/Ground"]
+editor/display_folded = true
+position = Vector2( 0, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="End Section/Ground/Ground 10" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 11" type="Node2D" parent="End Section/Ground"]
+editor/display_folded = true
+position = Vector2( 160, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="End Section/Ground/Ground 11" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 12" type="Node2D" parent="End Section/Ground"]
+editor/display_folded = true
+position = Vector2( 320, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="End Section/Ground/Ground 12" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 13" type="Node2D" parent="End Section/Ground"]
+editor/display_folded = true
+position = Vector2( 480, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="End Section/Ground/Ground 13" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 16" type="Node2D" parent="End Section/Ground"]
+editor/display_folded = true
+position = Vector2( 800, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="End Section/Ground/Ground 16" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 14" type="Node2D" parent="End Section/Ground"]
+editor/display_folded = true
+position = Vector2( 640, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="End Section/Ground/Ground 14" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Ground 15" type="Node2D" parent="End Section/Ground"]
+editor/display_folded = true
+position = Vector2( 960, 80 )
+
+[node name="Ground 10x2" type="TileMap" parent="End Section/Ground/Ground 15" groups=[
+"ground",
+]]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+
+[node name="Block Structures" type="Node2D" parent="End Section"]
+editor/display_folded = true
+
+[node name="Block Structure" type="Node2D" parent="End Section/Block Structures"]
+
+[node name="L" type="Node2D" parent="End Section/Block Structures/Block Structure"]
+position = Vector2( 10, 0 )
+
+[node name="Blocks" type="TileMap" parent="End Section/Block Structures/Block Structure/L"]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131006, 1, 0, 196540, 1, 0, 196541, 1, 0, 196542, 1, 0, 262074, 1, 0, 262075, 1, 0, 262076, 1, 0, 262077, 1, 0, 262078, 1, 0, 327608, 1, 0, 327609, 1, 0, 327610, 1, 0, 327611, 1, 0, 327612, 1, 0, 327613, 1, 0, 327614, 1, 0 )
+
+[node name="Ramp" type="TileMap" parent="End Section/Block Structures/Block Structure/L" groups=[
+"ramp",
+"ramp_up",
+]]
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131004, 2, 0, 196538, 2, 0, 262072, 2, 0, 327606, 0, 0 )
+
+[node name="R" type="Node2D" parent="End Section/Block Structures/Block Structure"]
+position = Vector2( -2038, 0 )
+scale = Vector2( -1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Blocks" type="TileMap" parent="End Section/Block Structures/Block Structure/R"]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131006, 1, 0, 196540, 1, 0, 196541, 1, 0, 196542, 1, 0, 262074, 1, 0, 262075, 1, 0, 262076, 1, 0, 262077, 1, 0, 262078, 1, 0, 327608, 1, 0, 327609, 1, 0, 327610, 1, 0, 327611, 1, 0, 327612, 1, 0, 327613, 1, 0, 327614, 1, 0 )
+
+[node name="Ramp" type="TileMap" parent="End Section/Block Structures/Block Structure/R" groups=[
+"ramp",
+"ramp_down",
+]]
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131004, 2, 0, 196538, 2, 0, 262072, 2, 0, 327606, 0, 0 )
+
+[node name="Across" type="TileMap" parent="End Section/Block Structures/Block Structure"]
+position = Vector2( -6, 0 )
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( 131040, 3, 0 )
 
