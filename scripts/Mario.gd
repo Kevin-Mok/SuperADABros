@@ -120,16 +120,18 @@ func check_if_can_attack():# {{{
 	# - not already attacking
 	# - on ground
 	#   - calling this function if collision
-	if ((cur_mouse_point.y < Global.TEST_ATTACK_LINE_Y) &&
-			!rotating &&
-			direction.x == 0 &&
-			!attacking):
+	var want_to_attack = ((Global.hover_movement &&
+		(cur_mouse_point.y < Global.TEST_ATTACK_LINE_Y)) || 
+		(Input.is_action_pressed("ui_attack")))
+	if (want_to_attack && !rotating && direction.x == 0 && !attacking):
 		return true
-	return false# }}}
+	return false
+# }}}
 
 func _move(delta):# {{{
-	# direction.x = int(Input.is_action_pressed("ui_right"))-int(Input.is_action_pressed("ui_left"))
-	direction.x = get_mouse_direction().x
+	direction.x = int(Input.is_action_pressed("ui_right"))-int(Input.is_action_pressed("ui_left"))
+	if Global.hover_movement :
+		direction.x = get_mouse_direction().x
 	
 	#  animation {{{ # 
 	

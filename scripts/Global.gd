@@ -14,6 +14,8 @@ var MARIO_NODE
 var MARIO_DEATH_NODE
 const GROUND_LEVEL_Y = 128
 
+var hover_movement = true
+# var hover_movement = false
 const LEFT_AREA = float(1)/6
 const RIGHT_AREA = 1-LEFT_AREA
 const ATTACK_AREA = float(1)/4

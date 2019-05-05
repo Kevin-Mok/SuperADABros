@@ -10,9 +10,9 @@
 [ext_resource path="res://img/mario/move-wheelchair-1.png" type="Texture" id=8]
 [ext_resource path="res://img/mario/move-wheelchair-2.png" type="Texture" id=9]
 [ext_resource path="res://scripts/Goomba.gd" type="Script" id=10]
-[ext_resource path="res://img/enemies/goomba/left.png" type="Texture" id=11]
-[ext_resource path="res://img/enemies/goomba/right.png" type="Texture" id=12]
-[ext_resource path="res://img/enemies/goomba/squash.png" type="Texture" id=13]
+[ext_resource path="res://img/enemies/goomba/squash.png" type="Texture" id=11]
+[ext_resource path="res://img/enemies/goomba/left.png" type="Texture" id=12]
+[ext_resource path="res://img/enemies/goomba/right.png" type="Texture" id=13]
 [ext_resource path="res://tiles/PipeTileSet.tres" type="TileSet" id=14]
 [ext_resource path="res://tiles/RampTileSet2.tres" type="TileSet" id=15]
 [ext_resource path="res://tiles/GroundTileSet.tres" type="TileSet" id=16]
@@ -38,15 +38,15 @@ height = 16.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "move",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "squash",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
