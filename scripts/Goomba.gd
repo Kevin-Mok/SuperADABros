@@ -21,9 +21,9 @@ func _ready():# {{{
 	set_physics_process(true)
 	$sprite.animation = "move"
 	$sprite.playing = true
-	direction.x = 0
+	# direction.x = 0
+	direction.x = -1
 	# direction.x = 1
-	# direction.x = -1
 
 func _physics_process(delta):
 	if killed_frames == 0:
@@ -34,10 +34,10 @@ func _physics_process(delta):
 			queue_free()
 # }}}
 
-func check_if_mario_opp_dir():
+func check_if_mario_opp_dir():# {{{
 	var mario_flipped = Global.MARIO_NODE.get_node("sprite").flip_h 
 	return ((direction.x == -1 && !mario_flipped) ||
-			(direction.x == 1 && mario_flipped))
+			(direction.x == 1 && mario_flipped))# }}}
 
 func _move(delta):# {{{
 	var not_at_left_edge = $sprite.get_global_transform_with_canvas()[2].x > 0
@@ -52,7 +52,8 @@ func _move(delta):# {{{
 		if get_col.collider.is_in_group("ramp"):
 			direction.x *= -1
 		elif get_col.collider.is_in_group("mario"):
-			if check_if_mario_opp_dir() && Global.MARIO_NODE.attacking:
+			if ((check_if_mario_opp_dir() && Global.MARIO_NODE.attacking) ||
+					(Global.MARIO_NODE.velocity.y > 0)):
 				direction.x *= 0
 				$sprite.animation = "squash"
 				$sprite.playing = false

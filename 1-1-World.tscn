@@ -10,9 +10,9 @@
 [ext_resource path="res://img/mario/move-wheelchair-1.png" type="Texture" id=8]
 [ext_resource path="res://img/mario/move-wheelchair-2.png" type="Texture" id=9]
 [ext_resource path="res://scripts/Goomba.gd" type="Script" id=10]
-[ext_resource path="res://img/enemies/goomba/left.png" type="Texture" id=11]
-[ext_resource path="res://img/enemies/goomba/right.png" type="Texture" id=12]
-[ext_resource path="res://img/enemies/goomba/squash.png" type="Texture" id=13]
+[ext_resource path="res://img/enemies/goomba/squash.png" type="Texture" id=11]
+[ext_resource path="res://img/enemies/goomba/left.png" type="Texture" id=12]
+[ext_resource path="res://img/enemies/goomba/right.png" type="Texture" id=13]
 [ext_resource path="res://tiles/PipeTileSet.tres" type="TileSet" id=14]
 [ext_resource path="res://tiles/RampTileSet2.tres" type="TileSet" id=15]
 [ext_resource path="res://tiles/GroundTileSet.tres" type="TileSet" id=16]
@@ -36,15 +36,15 @@ height = 16.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "move",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "squash",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -81,6 +81,7 @@ default_color = Color( 1, 0.85098, 0.4, 1 )
 texture_mode = 1073741824
 
 [node name="Mario (Death)" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 24, 128 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -104,7 +105,7 @@ texture = ExtResource( 5 )
 "mario",
 ]]
 editor/display_folded = true
-position = Vector2( 368, 128 )
+position = Vector2( 112, 96 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
@@ -135,8 +136,10 @@ editor_draw_drag_margin = true
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Goomba" type="KinematicBody2D" parent="Enemies"]
-position = Vector2( 264, 136 )
+[node name="Goomba" type="KinematicBody2D" parent="Enemies" groups=[
+"enemy",
+]]
+position = Vector2( 256, 136 )
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
@@ -150,10 +153,8 @@ animation = "move"
 shape = SubResource( 4 )
 
 [node name="Pipe-Ramps" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Pipe-Ramp" type="Node2D" parent="Pipe-Ramps"]
-editor/display_folded = true
 position = Vector2( 304, 0 )
 __meta__ = {
 "_edit_group_": true
@@ -194,13 +195,23 @@ format = 1
 tile_data = PoolIntArray( 262151, 2, 0, 327686, 2, 0, 393221, 2, 0, 458756, 0, 0, 524291, 0, 0 )
 
 [node name="Ground" type="Node2D" parent="."]
-editor/display_folded = true
+
+[node name="Ground 15" type="Node2D" parent="Ground"]
+position = Vector2( -32, 80 )
+
+[node name="TileMap" type="TileMap" parent="Ground/Ground 15"]
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0 )
 
 [node name="Ground 10" type="Node2D" parent="Ground"]
 editor/display_folded = true
 position = Vector2( 0, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 10"]
+[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 10" groups=[
+"ground",
+]]
 tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -210,7 +221,9 @@ tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0
 editor/display_folded = true
 position = Vector2( 160, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 11"]
+[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 11" groups=[
+"ground",
+]]
 tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -220,7 +233,9 @@ tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0
 editor/display_folded = true
 position = Vector2( 320, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 12"]
+[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 12" groups=[
+"ground",
+]]
 tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -230,7 +245,9 @@ tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0
 editor/display_folded = true
 position = Vector2( 480, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 13"]
+[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 13" groups=[
+"ground",
+]]
 tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -240,7 +257,9 @@ tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0
 editor/display_folded = true
 position = Vector2( 640, 80 )
 
-[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 14"]
+[node name="Ground 10x2" type="TileMap" parent="Ground/Ground 14" groups=[
+"ground",
+]]
 tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1

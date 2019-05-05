@@ -4,9 +4,11 @@ extends KinematicBody2D
 
 # var speed = 25
 const GROUND_SPEED = 100
+# const GROUND_SPEED = 200
 var speed = GROUND_SPEED
 # var gravity = 1300
-var	gravity = 3000
+# var gravity = 3000
+var	gravity = 2000
 
 var distance = Vector2()
 var velocity = Vector2()
@@ -145,13 +147,12 @@ func _move(delta):# {{{
 	
 	move_and_slide(velocity,Vector2(0,-1))
 	
-	if is_on_floor():# {{{
-		velocity.y = 0
-		direction.y = 0
-	# }}}
-
+	# if get_col.collider.is_in_group("ground"):
 	if get_slide_count() > 0:# {{{
 		var get_col = get_slide_collision(get_slide_count()-1)
+		if is_on_floor() && !get_col.collider.is_in_group("enemy"):
+			velocity.y = 0
+			direction.y = 0
 		if get_col.collider.is_in_group("ramp"):
 			if get_col.collider.is_in_group("ramp_up"):
 				set_ramp_status(true, "ramp_up")
@@ -167,6 +168,8 @@ func _move(delta):# {{{
 			# speed = GROUND_SPEED
 	# }}}
 
+	print(velocity.y)
+	# print(is_on_floor())
 # }}}
 
 func death():# {{{
