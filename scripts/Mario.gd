@@ -40,10 +40,18 @@ var cur_mouse_point
 func _ready():# {{{
 	set_physics_process(true)
 	Global.MARIO_NODE = self
+	if Global.cur_checkpoint_index >= 0:
+		# position = get_position_of_checkpoint(Global.cur_checkpoint_index)
+		position = Global.CHECKPOINTS[Global.cur_checkpoint_index]
+	else:
+		position = Global.STARTING_POS
 
 func _physics_process(delta):
 	_move(delta)
 # }}}
+
+# func get_position_of_checkpoint(index):
+	# return get_node("/root/1-1-World/" + Global.CHECKPOINTS[index]).position
 
 func get_mouse_direction():# {{{
 	cur_mouse_point = Global.view.get_mouse_position() * Global.TEST_WINDOW_SCALE
@@ -146,29 +154,44 @@ func _move(delta):# {{{
 	
 	move_and_slide(velocity,Vector2(0,-1))
 	
+	var collide_with_enemy = false
 	if get_slide_count() > 0:# {{{
-		var get_col = get_slide_collision(get_slide_count()-1)
-		if is_on_floor() && !get_col.collider.is_in_group("enemy"):
-			velocity.y = 0
-			direction.y = 0
-		if get_col.collider.is_in_group("ramp"):
-			if get_col.collider.is_in_group("ramp_up"):
-				set_ramp_status(true, "ramp_up")
-			elif get_col.collider.is_in_group("ramp_down"):
-				set_ramp_status(true, "ramp_down")
-			# speed = RAMP_SPEED
-		else:
-			set_ramp_status(false, 'level')
-			if check_if_can_attack():
-				attacking = true
-				attacking_rotating_up = true
-			set_attack_status()
-			# speed = GROUND_SPEED
+		for i in range(get_slide_count()):
+			var get_col = get_slide_collision(get_slide_count()-1)
+			if is_on_floor() && !get_col.collider.is_in_group("enemy"):
+				velocity.y = 0
+				direction.y = 0
+			if get_col.collider.is_in_group("ramp"):
+				if get_col.collider.is_in_group("ramp_up"):
+					set_ramp_status(true, "ramp_up")
+				elif get_col.collider.is_in_group("ramp_down"):
+					set_ramp_status(true, "ramp_down")
+				# speed = RAMP_SPEED
+			else:
+				set_ramp_status(false, 'level')
+				if check_if_can_attack():
+					attacking = true
+					attacking_rotating_up = true
+				set_attack_status()
+				# speed = GROUND_SPEED
+			if get_col.collider.is_in_group("enemy") && !get_col.collider.check_if_mario_kills():
+				get_col.collider.kill_mario()
 	# }}}
-
 # }}}
 
 func death():# {{{
 	visible = false
 	Global.MARIO_DEATH_NODE.get_node("wheelchair").flip_h = $sprite.flip_h
-	Global.MARIO_DEATH_NODE.play_animation()# }}}
+	Global.MARIO_DEATH_NODE.play_animation()
+# }}}
+
+func update_cur_checkpoint():
+	# while position.x >= get_position_of_checkpoint(Global.cur_checkpoint_index + 1):
+	if Global.cur_checkpoint_index + 1 >= Global.CHECKPOINTS.size():
+		return
+	else:
+		while position.x >= Global.CHECKPOINTS[Global.cur_checkpoint_index + 1].x:
+			# if Global.cur_checkpoint_index + 1 < Global.CHECKPOINTS.size():
+			Global.cur_checkpoint_index += 1
+			if Global.cur_checkpoint_index + 1 >= Global.CHECKPOINTS.size():
+				break

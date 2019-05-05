@@ -231,6 +231,7 @@ texture = ExtResource( 5 )
 [node name="Mario" type="KinematicBody2D" parent="." groups=[
 "mario",
 ]]
+editor/display_folded = true
 position = Vector2( 2824, 64 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -339,15 +340,12 @@ animation = "move"
 shape = SubResource( 4 )
 
 [node name="Pipe-Ramps" type="Node2D" parent="Pipes Section"]
-editor/display_folded = true
 position = Vector2( -1176, -64 )
 
 [node name="Pipe-Ramp2" type="Node2D" parent="Pipes Section/Pipe-Ramps"]
-editor/display_folded = true
 position = Vector2( 240, 32 )
 
 [node name="Pipe" type="Node2D" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2"]
-editor/display_folded = true
 position = Vector2( -32, 0 )
 
 [node name="TileMap" type="TileMap" parent="Pipes Section/Pipe-Ramps/Pipe-Ramp2/Pipe"]

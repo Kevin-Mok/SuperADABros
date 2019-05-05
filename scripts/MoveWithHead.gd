@@ -13,7 +13,8 @@ const NUM_FACE_CENTERS = 3
 var head_centers = []
 var last_head_center = Vector2(0,0)
 # scale_head_movement {{{
-var scale_head_movement = Vector2(15,15)
+# var scale_head_movement = Vector2(15,15)
+var scale_head_movement = Vector2(20,20)
 # var scale_head_movement = Vector2(25,25)
 # var scale_head_movement = Vector2(70,35)
 # var scale_head_movement = Vector2(200,150)

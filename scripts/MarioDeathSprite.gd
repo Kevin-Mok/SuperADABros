@@ -5,7 +5,8 @@ var play = false
 
 var jump_speed = 60
 var jumped = false
-var gravity = jump_speed * 1.5
+# var gravity = jump_speed * 1.5
+var gravity = jump_speed * 5
 var velocity = Vector2(0,0)
 
 const BELOW_SCREEN = 184
@@ -25,6 +26,7 @@ func _move(delta):# {{{
 		velocity.y -= jump_speed
 		jumped = true
 	move_and_slide(velocity,Vector2(0,-1))
-	if position.y > 184:
+	if position.y > BELOW_SCREEN:
+		Global.MARIO_NODE.update_cur_checkpoint()
 		get_tree().reload_current_scene()
 # }}}

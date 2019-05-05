@@ -38,7 +38,18 @@ func _physics_process(delta):
 func check_if_mario_opp_dir():# {{{
 	var mario_flipped = Global.MARIO_NODE.get_node("sprite").flip_h 
 	return ((direction.x == -1 && !mario_flipped) ||
-			(direction.x == 1 && mario_flipped))# }}}
+			(direction.x == 1 && mario_flipped))
+# }}}
+
+func check_if_mario_kills():
+	return ((check_if_mario_opp_dir() && Global.MARIO_NODE.attacking) ||
+			# (Global.MARIO_NODE.velocity.y > 0))
+			(Global.MARIO_NODE.position.y > Global.GROUND_LEVEL_Y))
+
+func kill_mario():
+	direction.x = 0
+	$sprite.playing = false
+	Global.MARIO_NODE.death()
 
 func _move(delta):# {{{
 	var not_at_left_edge = $sprite.get_global_transform_with_canvas()[2].x > 0
@@ -52,18 +63,14 @@ func _move(delta):# {{{
 		var get_col = get_slide_collision(get_slide_count()-1)
 		if (get_col.collider.is_in_group("ramp") ||
 				get_col.collider.is_in_group("enemy")):
-			print(get_col.collider)
 			direction.x *= -1
 		elif get_col.collider.is_in_group("mario"):
-			if ((check_if_mario_opp_dir() && Global.MARIO_NODE.attacking) ||
-					(Global.MARIO_NODE.velocity.y > 0)):
+			if check_if_mario_kills():
 				direction.x *= 0
 				$sprite.animation = "squash"
 				$sprite.playing = false
 				get_node("collision").queue_free()
 				killed_frames += 1
 			else:
-				direction.x = 0
-				$sprite.playing = false
-				Global.MARIO_NODE.death()
+				kill_mario()
 # }}}
