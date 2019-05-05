@@ -1,26 +1,30 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/MouseBoundaries.gd" type="Script" id=1]
-[ext_resource path="res://scripts/Mario.gd" type="Script" id=2]
-[ext_resource path="res://img/mario/idle-wheelchair.png" type="Texture" id=3]
-[ext_resource path="res://img/mario/move-wheelchair-1.png" type="Texture" id=4]
-[ext_resource path="res://img/mario/move-wheelchair-2.png" type="Texture" id=5]
-[ext_resource path="res://scripts/Goomba.gd" type="Script" id=6]
-[ext_resource path="res://img/enemies/goomba/left.png" type="Texture" id=7]
-[ext_resource path="res://img/enemies/goomba/right.png" type="Texture" id=8]
-[ext_resource path="res://img/enemies/goomba/squash.png" type="Texture" id=9]
-[ext_resource path="res://tiles/PipeTileSet.tres" type="TileSet" id=10]
-[ext_resource path="res://tiles/RampTileSet2.tres" type="TileSet" id=11]
-[ext_resource path="res://tiles/GroundTileSet.tres" type="TileSet" id=12]
+[ext_resource path="res://scripts/MarioDeath.gd" type="Script" id=2]
+[ext_resource path="res://scripts/MarioDeathSprite.gd" type="Script" id=3]
+[ext_resource path="res://img/mario/mario-death-wheelchair.png" type="Texture" id=4]
+[ext_resource path="res://img/mario/empty-wheelchair.png" type="Texture" id=5]
+[ext_resource path="res://scripts/Mario.gd" type="Script" id=6]
+[ext_resource path="res://img/mario/idle-wheelchair.png" type="Texture" id=7]
+[ext_resource path="res://img/mario/move-wheelchair-1.png" type="Texture" id=8]
+[ext_resource path="res://img/mario/move-wheelchair-2.png" type="Texture" id=9]
+[ext_resource path="res://scripts/Goomba.gd" type="Script" id=10]
+[ext_resource path="res://img/enemies/goomba/left.png" type="Texture" id=11]
+[ext_resource path="res://img/enemies/goomba/right.png" type="Texture" id=12]
+[ext_resource path="res://img/enemies/goomba/squash.png" type="Texture" id=13]
+[ext_resource path="res://tiles/PipeTileSet.tres" type="TileSet" id=14]
+[ext_resource path="res://tiles/RampTileSet2.tres" type="TileSet" id=15]
+[ext_resource path="res://tiles/GroundTileSet.tres" type="TileSet" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
@@ -32,12 +36,12 @@ height = 16.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "squash",
 "speed": 3.0
@@ -76,12 +80,32 @@ width = 1.0
 default_color = Color( 1, 0.85098, 0.4, 1 )
 texture_mode = 1073741824
 
+[node name="Mario (Death)" type="Node2D" parent="."]
+position = Vector2( 24, 128 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Mario Sprite (Death)" type="KinematicBody2D" parent="Mario (Death)"]
+editor/display_folded = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="Sprite" parent="Mario (Death)/Mario Sprite (Death)"]
+texture = ExtResource( 4 )
+
+[node name="wheelchair" type="Sprite" parent="Mario (Death)"]
+texture = ExtResource( 5 )
+
 [node name="Mario" type="KinematicBody2D" parent="." groups=[
 "mario",
 ]]
 editor/display_folded = true
 position = Vector2( 368, 128 )
-script = ExtResource( 2 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -112,8 +136,8 @@ editor_draw_drag_margin = true
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Goomba" type="KinematicBody2D" parent="Enemies"]
-position = Vector2( 72, 136 )
-script = ExtResource( 6 )
+position = Vector2( 264, 136 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -138,7 +162,7 @@ __meta__ = {
 [node name="Pipe" type="Node2D" parent="Pipe-Ramps/Pipe-Ramp"]
 
 [node name="TileMap" type="TileMap" parent="Pipe-Ramps/Pipe-Ramp/Pipe"]
-tile_set = ExtResource( 10 )
+tile_set = ExtResource( 14 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262160, 0, 0, 327696, 1, 0, 393232, 1, 0, 458768, 1, 0, 524304, 1, 0 )
@@ -151,7 +175,7 @@ tile_data = PoolIntArray( 262160, 0, 0, 327696, 1, 0, 393232, 1, 0, 458768, 1, 0
 "ramp",
 "ramp_up",
 ]]
-tile_set = ExtResource( 11 )
+tile_set = ExtResource( 15 )
 cell_size = Vector2( 32, 16 )
 format = 1
 tile_data = PoolIntArray( 262151, 2, 0, 327686, 2, 0, 393221, 2, 0, 458756, 0, 0, 524291, 0, 0 )
@@ -164,7 +188,7 @@ scale = Vector2( -1, 1 )
 "ramp",
 "ramp_down",
 ]]
-tile_set = ExtResource( 11 )
+tile_set = ExtResource( 15 )
 cell_size = Vector2( 32, 16 )
 format = 1
 tile_data = PoolIntArray( 262151, 2, 0, 327686, 2, 0, 393221, 2, 0, 458756, 0, 0, 524291, 0, 0 )
@@ -177,7 +201,7 @@ editor/display_folded = true
 position = Vector2( 0, 80 )
 
 [node name="Ground 10x2" type="TileMap" parent="Ground/Ground 10"]
-tile_set = ExtResource( 12 )
+tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
@@ -187,7 +211,7 @@ editor/display_folded = true
 position = Vector2( 160, 80 )
 
 [node name="Ground 10x2" type="TileMap" parent="Ground/Ground 11"]
-tile_set = ExtResource( 12 )
+tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
@@ -197,7 +221,7 @@ editor/display_folded = true
 position = Vector2( 320, 80 )
 
 [node name="Ground 10x2" type="TileMap" parent="Ground/Ground 12"]
-tile_set = ExtResource( 12 )
+tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
@@ -207,7 +231,7 @@ editor/display_folded = true
 position = Vector2( 480, 80 )
 
 [node name="Ground 10x2" type="TileMap" parent="Ground/Ground 13"]
-tile_set = ExtResource( 12 )
+tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
@@ -217,7 +241,7 @@ editor/display_folded = true
 position = Vector2( 640, 80 )
 
 [node name="Ground 10x2" type="TileMap" parent="Ground/Ground 14"]
-tile_set = ExtResource( 12 )
+tile_set = ExtResource( 16 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )

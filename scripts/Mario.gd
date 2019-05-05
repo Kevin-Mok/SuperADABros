@@ -168,3 +168,8 @@ func _move(delta):# {{{
 	# }}}
 
 # }}}
+
+func death():# {{{
+	visible = false
+	Global.MARIO_DEATH_NODE.get_node("wheelchair").flip_h = $sprite.flip_h
+	Global.MARIO_DEATH_NODE.play_animation()# }}}

@@ -22,8 +22,8 @@ func _ready():# {{{
 	$sprite.animation = "move"
 	$sprite.playing = true
 	direction.x = 0
-	# direction.x = -1
 	# direction.x = 1
+	# direction.x = -1
 
 func _physics_process(delta):
 	if killed_frames == 0:
@@ -61,4 +61,5 @@ func _move(delta):# {{{
 			else:
 				direction.x = 0
 				$sprite.playing = false
+				Global.MARIO_NODE.death()
 # }}}
