@@ -37,6 +37,7 @@ var cur_mouse_point
 
 func _ready():# {{{
 	set_physics_process(true)
+	Global.MARIO_NODE = self
 
 func _physics_process(delta):
 	_move(delta)

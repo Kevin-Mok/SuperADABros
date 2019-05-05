@@ -10,6 +10,8 @@ var TEST_WINDOW_DIMENSIONS = Vector2(
 		ProjectSettings.get_setting("display/window/size/test_height"))
 var TEST_WINDOW_SCALE = TEST_WINDOW_DIMENSIONS / WINDOW_DIMENSIONS
 
+var MARIO_NODE
+
 const LEFT_AREA = float(1)/6
 const RIGHT_AREA = 1-LEFT_AREA
 const ATTACK_AREA = float(1)/4
