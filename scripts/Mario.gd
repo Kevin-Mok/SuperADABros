@@ -195,3 +195,11 @@ func update_cur_checkpoint():
 			Global.cur_checkpoint_index += 1
 			if Global.cur_checkpoint_index + 1 >= Global.CHECKPOINTS.size():
 				break
+		if Global.cur_checkpoint_index == Global.last_checkpoint_count[0]:
+			Global.last_checkpoint_count[1] += 1
+			if Global.last_checkpoint_count[1] >= Global.MAX_CHECKPOINTS: 
+				Global.cur_checkpoint_index += 1
+				Global.last_checkpoint_count = [Global.cur_checkpoint_index, 0]
+		else:
+			Global.last_checkpoint_count[0] = Global.cur_checkpoint_index
+

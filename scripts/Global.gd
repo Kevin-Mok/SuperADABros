@@ -38,6 +38,8 @@ var CHECKPOINTS = [
 		]
 # var cur_checkpoint_index = -1
 var cur_checkpoint_index = 4
+var last_checkpoint_count = [cur_checkpoint_index, 0]
+const MAX_CHECKPOINTS = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
