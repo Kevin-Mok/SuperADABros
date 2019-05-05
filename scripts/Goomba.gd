@@ -52,6 +52,7 @@ func _move(delta):# {{{
 		var get_col = get_slide_collision(get_slide_count()-1)
 		if (get_col.collider.is_in_group("ramp") ||
 				get_col.collider.is_in_group("enemy")):
+			print(get_col.collider)
 			direction.x *= -1
 		elif get_col.collider.is_in_group("mario"):
 			if ((check_if_mario_opp_dir() && Global.MARIO_NODE.attacking) ||
