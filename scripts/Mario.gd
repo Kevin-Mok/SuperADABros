@@ -179,6 +179,8 @@ func _move(delta):# {{{
 			if get_col.collider.is_in_group("enemy") && !get_col.collider.check_if_mario_kills():
 				get_col.collider.kill_mario()
 	# }}}
+
+	# print(position.y)
 # }}}
 
 func death():# {{{

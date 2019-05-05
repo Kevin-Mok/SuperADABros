@@ -44,7 +44,7 @@ func check_if_mario_opp_dir():# {{{
 func check_if_mario_kills():
 	return ((check_if_mario_opp_dir() && Global.MARIO_NODE.attacking) ||
 			# (Global.MARIO_NODE.velocity.y > 0))
-			(Global.MARIO_NODE.position.y > Global.GROUND_LEVEL_Y))
+			(Global.MARIO_NODE.position.y < Global.GROUND_LEVEL_Y))
 
 func kill_mario():
 	direction.x = 0

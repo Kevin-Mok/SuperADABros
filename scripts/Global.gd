@@ -12,7 +12,7 @@ var TEST_WINDOW_SCALE = TEST_WINDOW_DIMENSIONS / WINDOW_DIMENSIONS
 
 var MARIO_NODE
 var MARIO_DEATH_NODE
-const GROUND_LEVEL_Y = 128
+const GROUND_LEVEL_Y = 127
 
 var hover_movement = true
 # var hover_movement = false
@@ -38,8 +38,8 @@ var CHECKPOINTS = [
 		Vector2(2440, 80),
 		Vector2(28234, 64),
 		]
-var cur_checkpoint_index = -1
-# var cur_checkpoint_index = 4
+# var cur_checkpoint_index = -1
+var cur_checkpoint_index = 4
 var last_checkpoint_count = [cur_checkpoint_index, 0]
 const MAX_CHECKPOINTS = 3
 

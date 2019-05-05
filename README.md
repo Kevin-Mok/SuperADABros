@@ -17,28 +17,33 @@ twist that he can't jump. So, there are ramps and lifts to make up for it.
 There are also a variety of input methods to suit whatever method is most
 comfortable for the user:
 - head movement
+  - using [this script](https://github.com/Kevin-Mok/face-tracker)
 - mouse
 - keyboard
 - controller
 
-A demo version that can be played with the mouse on multiple platforms (Windows, OS X, Linux and web) can be found [on the releases page](https://github.com/Kevin-Mok/super-ada-bros/releases). Take note of the fact that there may be existing bugs in the release due to time constraint.
+A demo version that can be played with the mouse on multiple platforms (Windows, OS X, Linux and web) can be found [on the releases page](https://github.com/Kevin-Mok/super-ada-bros/releases). Take note of the fact that there may be existing bugs in the release due to time constraint. There is also a built-in checkpoint system that moves you on to next the checkpoint (pipe) after 3 deaths, so you can see the whole level without any frustration.
 
-# How I Built It
+### How I Built It
 OpenCV and Godot.
 
-# Challenges I Ran Into
+### Challenges I Ran Into
 Game physics is more complex than I thought it would be, even with it being
 a simple 2D platformer.
 
-# Accomplishments That I'm Proud Of
+### Accomplishments That I'm Proud Of
 Making my first game. I'm pretty happy with the way it turned out given the
 amount of time I had.
 
-# What I Learned
+### What I Learned
 Basic game development skills and a bit of visual computing for the face
 tracking and game physics.
 
-# What's Next For Super ADA Bros
+### What's Next For Super ADA Bros
 - adjustable settings to match user's exact preferences
 - more features from original game
   - more mechanics with movement and enemies
+
+### Dev Log
+You can find some update pictures I posted while making this at the
+[Devpost for this project](https://devpost.com/software/super-ada-bros).
