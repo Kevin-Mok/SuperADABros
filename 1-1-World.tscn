@@ -110,6 +110,13 @@ width = 1.0
 default_color = Color( 1, 0.85098, 0.4, 1 )
 texture_mode = 1073741824
 
+[node name="attack_line" type="Line2D" parent="Move With Mouse/CanvasLayer"]
+z_index = 10
+points = PoolVector2Array( 96, 50, 288, 50 )
+width = 1.0
+default_color = Color( 1, 0.85098, 0.4, 1 )
+texture_mode = 1073741824
+
 [node name="Pipe-Ramps" type="Node2D" parent="."]
 
 [node name="Pipe-Ramp" type="Node2D" parent="Pipe-Ramps"]

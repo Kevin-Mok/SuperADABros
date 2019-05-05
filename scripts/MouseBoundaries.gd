@@ -9,3 +9,8 @@ func _ready():
 
 	$move_right_line.set_point_position(0, Vector2(Global.MOVE_RIGHT_LINE_X, -Y_SPAN))
 	$move_right_line.set_point_position(1, Vector2(Global.MOVE_RIGHT_LINE_X, Y_SPAN))
+
+	$attack_line.set_point_position(0, Vector2(Global.MOVE_LEFT_LINE_X,
+		Global.ATTACK_LINE_Y))
+	$attack_line.set_point_position(1, Vector2(Global.MOVE_RIGHT_LINE_X,
+		Global.ATTACK_LINE_Y))

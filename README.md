@@ -25,6 +25,7 @@ comfortable for the user:
 OpenCV and Godot.
 
 # Challenges I Ran Into
+- rotation physics
 
 # Accomplishments That I'm Proud Of
 

@@ -15,10 +15,21 @@ var direction = Vector2()
 var on_ramp = false
 const RAMP_SPEED = 150
 var rotating = false
+var attacking = false
+var attacking_rotating_up
 
 const RAMP_DEGREES = 26.5
 const FRAMES_TO_ROTATE = 15
 const RAMP_DEGREES_PER_FRAME = RAMP_DEGREES / FRAMES_TO_ROTATE
+
+const ATTACK_DEGREES = 45
+# const FRAMES_TO_ATTACK_UP = 12
+# const FRAMES_TO_ATTACK_DOWN = 10
+const FRAMES_TO_ATTACK_UP = 10
+const FRAMES_TO_ATTACK_DOWN = 8
+const ATTACK_UP_DEGREES_PER_FRAME = ATTACK_DEGREES / FRAMES_TO_ATTACK_UP
+const ATTACK_DOWN_DEGREES_PER_FRAME = ATTACK_DEGREES / FRAMES_TO_ATTACK_DOWN
+const REV_DIR_ATTACK_GRAVITY = 50
 
 var cur_mouse_point 
 
@@ -58,6 +69,19 @@ func set_rotation_degree(action):# {{{
 				increment_rotation_degrees(RAMP_DEGREES_PER_FRAME, 0)
 			elif rotation_degrees > 0:
 				increment_rotation_degrees(-RAMP_DEGREES_PER_FRAME, 0)
+		'attack':
+			var degree_multiplier = (-1 if !$sprite.flip_h else 1)
+			if attacking_rotating_up:
+				increment_rotation_degrees(ATTACK_UP_DEGREES_PER_FRAME *
+						degree_multiplier, ATTACK_DEGREES * degree_multiplier)
+			else:
+				increment_rotation_degrees(-ATTACK_DOWN_DEGREES_PER_FRAME *
+						degree_multiplier, 0)
+			# if $sprite.flip_h:
+				# velocity.y += REV_DIR_ATTACK_GRAVITY
+			if rotation_degrees == ATTACK_DEGREES * degree_multiplier:
+				attacking_rotating_up = false
+			# print(rotation_degrees)
 # }}}
 
 func set_ramp_status(set_on_ramp, direction):# {{{
@@ -67,6 +91,31 @@ func set_ramp_status(set_on_ramp, direction):# {{{
 		set_rotation_degree(direction)
 	on_ramp = set_on_ramp
 # }}}
+
+func set_attack_status():# {{{
+	if attacking:
+		rotating = true
+		set_rotation_degree('attack')
+	if rotation_degrees == 0:
+		attacking = false
+# }}}
+
+func check_if_can_attack():# {{{
+	# only attack if:
+	# - mouse in right area
+	# - not on ramp/rotating
+	#   - calling this function if not on ramp
+	# - not moving
+	#   - redundant since can't attack and move anyway?
+	# - not already attacking
+	# - on ground
+	#   - calling this function if collision
+	if ((cur_mouse_point.y < Global.TEST_ATTACK_LINE_Y) &&
+			!rotating &&
+			direction.x == 0 &&
+			!attacking):
+		return true
+	return false# }}}
 
 func _move(delta):# {{{
 	# direction.x = int(Input.is_action_pressed("ui_right"))-int(Input.is_action_pressed("ui_left"))
@@ -110,6 +159,10 @@ func _move(delta):# {{{
 			# speed = RAMP_SPEED
 		else:
 			set_ramp_status(false, 'level')
+			if check_if_can_attack():
+				attacking = true
+				attacking_rotating_up = true
+			set_attack_status()
 			# speed = GROUND_SPEED
 	# }}}
 
