@@ -1,3 +1,7 @@
+# Demo
+### [Demo Video](https://youtu.be/vRdENLGrBqM)
+![Demo Image](https://user-images.githubusercontent.com/25857736/211397451-8d427837-1ca8-4a95-b27e-6d29ca603a2c.png)
+
 # Inspiration
 I was browsing the web looking for existing assistive technology to get
 inspiration. I came across the [r/disability
